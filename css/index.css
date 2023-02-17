@@ -50,6 +50,7 @@
     right: 0px;
 }
 
+
 .text-dark {
     position: relative;
     color: #000;
@@ -151,6 +152,14 @@ a.link-to-book:hover {
 	display: block;
 }
 
+#map, #googleMap {
+    border: #000 solid 2px;
+    height: 500px;
+    width: 100%;
+
+}
+
+
 @media (min-width:577px) and (max-width: 800px) {
 
 	.section-intro {
@@ -188,6 +197,7 @@ a.link-to-book:hover {
 	.about-section p,
 	.about-section h3 {
 		font-size: 15px;
+        text-align: center;
 	}
 
 	.carousel-inner {

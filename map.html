@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Distance Map</title>
+    <link rel="stylesheet" href="css/index.css">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href=
+"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity=
+"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <script src="https://kit.fontawesome.com/ab2155e76b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">    
+    
+    <style>
+    
+    </style>
+</head>
+<body>
+    <div>
+        <div class="container-fluid">
+            <h1>Find The Distance Between Two Places</h1>
+            <p>This App Will Help You Calculate Your Traveling Distance</p>
+            <form class="form-horizontal">
+                <div class="form-group row row-content">
+                    <label for="from" class="col-xs-2 control label"><i class="far fa-dot-circle"></i></label>
+                    <div class="col-xs-4">
+                        <input type="text" id="from" placeholder="Origin" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row row-content">
+                    <label for="to" class="col-xs-2 control label"><i class="fas fa-map-marker-alt"></i></label>
+                    <div class="col-xs-4">
+                        <input type="text" id="to" placeholder="Destination" class="form-control">
+                    </div>
+                </div>
+            </form>
+            <div class="col-xs-offset-2 col-xs-10">
+                <button class="btn btn-info btn-lg"><i class="fas fa-directions"></i></button>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div id="googleMap"></div>
+            <div id="output">
+                
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function initMap() {
+            let location = {lat: 38.3460, lng: -.4907};
+            let map = new google.maps.Map(document.getElementById("googleMap"), {
+                zoom: 7, 
+                center: location,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            });
+            let marker = new google.maps.Marker({
+                position: location,
+                map: map 
+            });
+        } 
+        
+    </script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=&libraries=places&callback=initMap">
+</script>
+    
+    <!-- <script>
+        script>
+        function initMap() {
+            let location = {lat: -25.363, lng: 131.044};
+            let map = new google.maps.Map(document.getElementById("googleMap"), {
+                zoom: 4, 
+                center: location
+            });
+    </script>
+    <script async
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFekPxQddPC5tlXvU2GXENM5PUTaoLM-M&libraries=places&callback=initMap">
+</script> -->
+   
+    
+
+</body>
+</html>

@@ -9,6 +9,8 @@
 			initial-scale=1, shrink-to-fit=no">
 
 	<link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href=
@@ -48,32 +50,84 @@
 	</nav>
     
 
-<div class="container contact-form">
-            <div class="contact-image">
-                <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
-            </div>
-            <form method="post">
-                <h3>Have a Question? Send us a Message</h3>
-               <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
-                        </div>
-                        <div class="form-group">
-                            <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
-                        </div>
+    <div class="container contact-form">
+        <div style="margin: 3rem;">
+            <!-- <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/> -->
+        <img src="img/National-Latte-Day-640x514.jpeg" height="200px" width="auto" alt="coffee">   
+        </div>
+        <form method="post">
+            <h3>Have a Question? Send us a Message</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" name="txtName" class="form-control" placeholder="Your Name *" value="" />
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
-                        </div>
+                    <div class="form-group">
+                        <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
                     </div>
                 </div>
-            </form>
-</div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <hr>
+        <div style="text-align:center" class="about-section"><p>Our Location <br> 1410 Mission St Santa Cruz, CA 95060</p></div>
+        <div style="text-align: center;" id="map"></div>
+    </div>
+    <div class="container">
+		<div class="row-flex">
+            <div class="opening-time">
+                <h3>
+                    Opening times
+                </h3>
+                
+                <p>
+                    <span>Monday—Thursday: 08:00 — 22:00</span>
+                    <span>Friday—Saturday: 09:00 — 23:00 </span>
+                    <span>Sunday: 10:00 — 17:00</span>
+                </p>
+
+            </div>
+            <footer>
+            <div class="contact-address">
+                <h3>
+                    Contact
+                </h3>
+                
+                <p>
+                    <span>410-602-8008</span>
+                    <span>1410 Mission St</span>
+                    <span>Santa Cruz, CA 95060</span>
+                </p>
+
+            </div>
+        </div>
+    </div>     
+</footer>
+    <script>
+        function initMap1() {
+            let location = {lat: 36.967570, lng: -122.039210};
+            let map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12, 
+                center: location
+            });
+            let marker = new google.maps.Marker({
+                position: location,
+                map: map 
+            });
+        } 
+        
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFekPxQddPC5tlXvU2GXENM5PUTaoLM-M&callback=initMap1">
+    
+    </script> 
+</body>
