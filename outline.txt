@@ -1,21 +1,8 @@
-3 parts:
-Github
-Personal website
-Update a restuarant page, or product page? 
-    would like to figure out how to add a map...
-    maybe instagram
-    maybe booking aspect 
+Pages to Use 
+contactus.HTML
+index.HTML
 
 
-
-
-General development plan:
-During the Bootstrap course: create a static, responsive version of the website.
-During the React course: make the data dynamic (menus, locations, events, memberships etc...).
-During the React Native course: turn the website into a mobile app.
-During the NodeJS, Express, MongoDB course: move the data to MongoDB, build the REST APIs.
-
-
-1. HTML Outline of webpage
-2. style page
-3. 
+testing pages:
+map.HTML
+app.NodeJS
