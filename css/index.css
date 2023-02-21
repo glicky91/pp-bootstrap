@@ -25,6 +25,7 @@
 	font-size: 1.5em;
 	text-transform: uppercase;
 	font-weight: 300;
+    
 }
 .nav-flex-row li a:hover{
 	background: #E7E7E7;
@@ -94,6 +95,7 @@ a.link-to-book:hover {
 	background-color: #ffffff;
 	color: #95999e;
 	text-decoration: none;
+    
 }
 
 .about-section p,

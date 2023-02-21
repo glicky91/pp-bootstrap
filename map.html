@@ -50,15 +50,16 @@
                 <div class="form-group row row-content">
                     <label for="from" class="col-xs-2 control label"><i class="far fa-dot-circle"></i></label>
                     <div class="col-xs-4">
-                        <input type="text" id="from" placeholder="Origin" class="form-control">
+                        <input id="start" type="text" placeholder="Enter your starting location" class="form-control">
+
                     </div>
                 </div>
-                <div class="form-group row row-content">
+                <!-- <div class="form-group row row-content">
                     <label for="to" class="col-xs-2 control label"><i class="fas fa-map-marker-alt"></i></label>
                     <div class="col-xs-4">
                         <input type="text" id="to" placeholder="Destination" class="form-control">
                     </div>
-                </div>
+                </div> -->
             </form>
             <div class="col-xs-offset-2 col-xs-10 text-dark">
                 <button class="btn btn-info btn-lg"><i class="fas fa-directions"></i></button>
@@ -72,7 +73,7 @@
         </div>
     </div>
     
-    <!-- THIS SECTION WORKS BUT WANT TO COPY WHAT IS IN VIDEO --><script> 
+    <!-- THIS SECTION WORKS BUT WANT TO COPY WHAT IS IN VIDEO<script> 
         function initMap() {
             let location = {lat: 36.967570, lng: -122.039210};
             let map = new google.maps.Map(document.getElementById("googleMap"), {
@@ -89,7 +90,7 @@
     </script> 
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=KEYTOADD&libraries=places&callback=initMap">
-</script>
+</script> -->
     
     <!-- <script>
         script>
@@ -104,7 +105,164 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFekPxQddPC5tlXvU2GXENM5PUTaoLM-M&libraries=places&callback=initMap">
 </script> -->
    
+<!--The following is from ChatgPT -->
+<!-- <iframe width="100%" height="450" frameborder="0" style="border:0"
+src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB_PGXFEP85bdIFxf0BfriNiv-Pv3YBrR8
+&origin=37.96756,-122.039228&destination=36.967570,-122.039210" allowfullscreen></iframe> -->
+
+
+<!--from google-->
+// This example requires the Places library. Include the libraries=places
+// parameter when you first load the API. For example:
+// <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_PGXFEP85bdIFxf0BfriNiv-Pv3YBrR8&libraries=places">
+function initMap() {
+  const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 40.749933, lng: -73.98633 },
+    zoom: 13,
+    mapTypeControl: false,
+  });
+  const card = document.getElementById("pac-card");
+  const input = document.getElementById("pac-input");
+  const biasInputElement = document.getElementById("use-location-bias");
+  const strictBoundsInputElement = document.getElementById("use-strict-bounds");
+  const options = {
+    fields: ["formatted_address", "geometry", "name"],
+    strictBounds: false,
+    types: ["establishment"],
+  };
+
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(card);
+
+  const autocomplete = new google.maps.places.Autocomplete(input, options);
+
+  // Bind the map's bounds (viewport) property to the autocomplete object,
+  // so that the autocomplete requests use the current map bounds for the
+  // bounds option in the request.
+  autocomplete.bindTo("bounds", map);
+
+  const infowindow = new google.maps.InfoWindow();
+  const infowindowContent = document.getElementById("infowindow-content");
+
+  infowindow.setContent(infowindowContent);
+
+  const marker = new google.maps.Marker({
+    map,
+    anchorPoint: new google.maps.Point(0, -29),
+  });
+
+  autocomplete.addListener("place_changed", () => {
+    infowindow.close();
+    marker.setVisible(false);
+
+    const place = autocomplete.getPlace();
+
+    if (!place.geometry || !place.geometry.location) {
+      // User entered the name of a Place that was not suggested and
+      // pressed the Enter key, or the Place Details request failed.
+      window.alert("No details available for input: '" + place.name + "'");
+      return;
+    }
+
+    // If the place has a geometry, then present it on a map.
+    if (place.geometry.viewport) {
+      map.fitBounds(place.geometry.viewport);
+    } else {
+      map.setCenter(place.geometry.location);
+      map.setZoom(17);
+    }
+
+    marker.setPosition(place.geometry.location);
+    marker.setVisible(true);
+    infowindowContent.children["place-name"].textContent = place.name;
+    infowindowContent.children["place-address"].textContent =
+      place.formatted_address;
+    infowindow.open(map, marker);
+  });
+
+  // Sets a listener on a radio button to change the filter type on Places
+  // Autocomplete.
+  function setupClickListener(id, types) {
+    const radioButton = document.getElementById(id);
+
+    radioButton.addEventListener("click", () => {
+      autocomplete.setTypes(types);
+      input.value = "";
+    });
+  }
+
+  setupClickListener("changetype-all", []);
+  setupClickListener("changetype-address", ["address"]);
+  setupClickListener("changetype-establishment", ["establishment"]);
+  setupClickListener("changetype-geocode", ["geocode"]);
+  setupClickListener("changetype-cities", ["(cities)"]);
+  setupClickListener("changetype-regions", ["(regions)"]);
+  biasInputElement.addEventListener("change", () => {
+    if (biasInputElement.checked) {
+      autocomplete.bindTo("bounds", map);
+    } else {
+      // User wants to turn off location bias, so three things need to happen:
+      // 1. Unbind from map
+      // 2. Reset the bounds to whole world
+      // 3. Uncheck the strict bounds checkbox UI (which also disables strict bounds)
+      autocomplete.unbind("bounds");
+      autocomplete.setBounds({ east: 180, west: -180, north: 90, south: -90 });
+      strictBoundsInputElement.checked = biasInputElement.checked;
+    }
+
+    input.value = "";
+  });
+  strictBoundsInputElement.addEventListener("change", () => {
+    autocomplete.setOptions({
+      strictBounds: strictBoundsInputElement.checked,
+    });
+    if (strictBoundsInputElement.checked) {
+      biasInputElement.checked = strictBoundsInputElement.checked;
+      autocomplete.bindTo("bounds", map);
+    }
+
+    input.value = "";
+  });
+}
+
+window.initMap = initMap;
     
 
+<!--The following is from ChatgPT -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_PGXFEP85bdIFxf0BfriNiv-Pv3YBrR8&callback=initMap" async defer></script>
+<script>
+    function initMap() {
+        var map = new google.maps.Map(document.getElementById('googleMap'), {
+          zoom: 10,
+          center: {lat:36.967570, lng: -122.4194},
+          mapTypeControl: false,
+        });
+        var directionsService = new google.maps.DirectionsService();
+        var directionsRenderer = new google.maps.DirectionsRenderer();
+        directionsRenderer.setMap(map);
+
+        let location = {lat: 36.967570, lng: -122.039210};
+        let marker = new google.maps.Marker({
+            position: location,
+            map: map 
+        });
+
+      
+        var startInput = document.getElementById('start');
+        var autocomplete = new google.maps.places.Autocomplete(startInput);
+      
+        var end = "36.967570,-122.039210"; // Replace with the destination address
+        var request = {
+          origin: startInput.value,
+          destination: end,
+          travelMode: 'DRIVING'
+        };
+        directionsService.route(request, function(result, status) {
+          if (status == 'OK') {
+            directionsRenderer.setDirections(result);
+          }
+        });
+      }
+      
+</script>
 </body>
 </html>
