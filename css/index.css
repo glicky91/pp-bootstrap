@@ -161,6 +161,11 @@ a.link-to-book:hover {
 
 }
 
+.menu-header{
+	font-family: 'Big Shoulders Text', cursive;
+	font-size: 25px;
+
+}
 
 @media (min-width:577px) and (max-width: 800px) {
 
@@ -227,3 +232,4 @@ a.link-to-book:hover {
 	}
 
 }
+
