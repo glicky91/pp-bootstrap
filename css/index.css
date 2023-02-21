@@ -167,6 +167,10 @@ a.link-to-book:hover {
 
 }
 
+.menu-body{
+	background-color: brown;
+}
+
 @media (min-width:577px) and (max-width: 800px) {
 
 	.section-intro {
