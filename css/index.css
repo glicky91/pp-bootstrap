@@ -186,6 +186,11 @@ a.link-to-book:hover {
 	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
+.menu-footer{
+	background-color: white;
+	opacity:0.65;
+	color:black
+}
 @media (min-width:577px) and (max-width: 800px) {
 
 	.section-intro {
