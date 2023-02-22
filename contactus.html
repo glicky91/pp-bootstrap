@@ -3,58 +3,58 @@
 
 <head>
 
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,
 			initial-scale=1, shrink-to-fit=no">
 
-	<link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="./node_modules/font-awesome/css/font-awesome.min.css">
 
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href=
-"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity=
-"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-		crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!------ Include the above in your HEAD tag ---------->
 
-	<title>Coffee Cafe</title>
+    <title>Coffee Cafe</title>
 </head>
 
 <body>
 
-	<!-- navbar -->
-	<nav>
-		<ul class="nav-flex-row">
-			<li class="nav-item">
-				<a href="./index.html">Home</a>
-			</li>
+    <!-- navbar -->
+    <nav>
+        <ul class="nav-flex-row">
             <li class="nav-item">
-				<a href="aboutus.html">About</a>
-			</li>
-			<li class="nav-item">
-				<a href="map.html">Map</a>
-			</li>
-			<li class="nav-item">
-				<a href="menu1.html">Menu</a>
-			</li>
-			<li class="nav-item">
-				<a href="#contact">Contact Us</a>
-			</li>
-		</ul>
-	</nav>
-    
+                <a href="./index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="aboutus.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="map.html">Map</a>
+            </li>
+            <li class="nav-item">
+                <a href="menu1.html">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="./events.html">Events</a>
+            </li>
+            <li class="nav-item">
+                <a href="#contact">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+
 
     <div class="container contact-form">
         <div style="margin: 3rem;">
             <!-- <img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/> -->
-        <img src="img/National-Latte-Day-640x514.jpeg" height="200px" width="auto" alt="coffee">   
-        <!-- <i class="fa-light fa-mug-hot"></i> -->
+            <img src="img/National-Latte-Day-640x514.jpeg" height="200px" width="auto" alt="coffee">
+            <!-- <i class="fa-light fa-mug-hot"></i> -->
         </div>
         <!-- <div style="height: 200px;"></div> -->
         <form method="post">
@@ -68,7 +68,8 @@
                         <input type="text" name="txtEmail" class="form-control" placeholder="Your Email *" value="" />
                     </div>
                     <div class="form-group">
-                        <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *" value="" />
+                        <input type="text" name="txtPhone" class="form-control" placeholder="Your Phone Number *"
+                            value="" />
                     </div>
                     <div class="form-group">
                         <input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
@@ -76,23 +77,26 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <textarea name="txtMsg" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+                        <textarea name="txtMsg" class="form-control" placeholder="Your Message *"
+                            style="width: 100%; height: 150px;"></textarea>
                     </div>
                 </div>
             </div>
         </form>
         <hr>
-        <div style="text-align:center" class="about-section"><p>Our Location <br> 1410 Mission St Santa Cruz, CA 95060</p></div>
+        <div style="text-align:center" class="about-section">
+            <p>Our Location <br> 1410 Mission St Santa Cruz, CA 95060</p>
+        </div>
         <div style="text-align: center;" id="map"></div>
     </div>
     <footer>
         <div class="container">
-		    <div class="row-flex">
+            <div class="row-flex">
                 <div class="opening-time">
                     <h3>
                         Opening times
                     </h3>
-                
+
                     <p>
                         <span>Monday—Thursday: 08:00 — 22:00</span>
                         <span>Friday—Saturday: 09:00 — 23:00 </span>
@@ -100,12 +104,12 @@
                     </p>
 
                 </div>
-            
+
                 <div class="contact-address">
                     <h3>
                         Contact
                     </h3>
-                    
+
                     <p>
                         <span>410-602-8008</span>
                         <span>1410 Mission St</span>
@@ -114,24 +118,24 @@
 
                 </div>
             </div>
-        </div>  
-       
+        </div>
+
     </footer>
     <script>
         function initMap1() {
-            let location = {lat: 36.967570, lng: -122.039210};
+            let location = { lat: 36.967570, lng: -122.039210 };
             let map = new google.maps.Map(document.getElementById("map"), {
-                zoom: 12, 
+                zoom: 12,
                 center: location
             });
             let marker = new google.maps.Marker({
                 position: location,
-                map: map 
+                map: map
             });
-        } 
-        
+        }
+
     </script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=KEYTOADD&callback=initMap1">
-    
-    </script> 
+
+    </script>
 </body>
