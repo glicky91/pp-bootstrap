@@ -1,47 +1,49 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Distance Map</title>
     <link rel="stylesheet" href="css/index.css">
 
-	<!-- Bootstrap CSS -->
-	<link rel="stylesheet" href=
-"https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-		integrity=
-"sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-		crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <script src="https://kit.fontawesome.com/ab2155e76b.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">    
-    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <script src="https://kit.fontawesome.com/ab2155e76b.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <style>
-    
+
     </style>
 </head>
+
 <body>
     <!-- navbar -->
-	
+
     <nav>
-		<ul class="nav-flex-row">
-			<li class="nav-item">
-				<a href="index.html">Home</a>
-			</li>
-			<li class="nav-item">
-				<a href="aboutus.html">About</a>
-			</li>
-			<li class="nav-item">
-				<a href="./map.html">Map</a>
-			</li>
-			<li class="nav-item">
-				<a href="./menu1.html">Menu</a>
-			</li>
-			<li class="nav-item">
-				<a href="./contactus.html">Contact Us</a>
-			</li>
-		</ul>
-	</nav>
-    
+        <ul class="nav-flex-row">
+            <li class="nav-item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="aboutus.html">About</a>
+            </li>
+            <li class="nav-item">
+                <a href="./map.html">Map</a>
+            </li>
+            <li class="nav-item">
+                <a href="./menu1.html">Menu</a>
+            </li>
+            <li class="nav-item">
+                <a href="./events.html">Events</a>
+            </li>
+            <li class="nav-item">
+                <a href="./contactus.html">Contact Us</a>
+            </li>
+        </ul>
+    </nav>
+
     <div>
         <div class="container-fluid section-intro">
             <h1 class="text-dark">Find The Distance Between Two Places</h1>
@@ -68,11 +70,11 @@
         <div class="container-fluid">
             <div id="googleMap"></div>
             <div id="output">
-                
+
             </div>
         </div>
     </div>
-    
+
     <!-- THIS SECTION WORKS BUT WANT TO COPY WHAT IS IN VIDEO<script> 
         function initMap() {
             let location = {lat: 36.967570, lng: -122.039210};
@@ -91,7 +93,7 @@
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=KEYTOADD&libraries=places&callback=initMap">
 </script> -->
-    
+
     <!-- <script>
         script>
         function initMap() {
@@ -104,49 +106,51 @@
     <script async
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFekPxQddPC5tlXvU2GXENM5PUTaoLM-M&libraries=places&callback=initMap">
 </script> -->
-   
-<!--The following is from ChatgPT -->
-<!-- <iframe width="100%" height="450" frameborder="0" style="border:0"
+
+    <!--The following is from ChatgPT -->
+    <!-- <iframe width="100%" height="450" frameborder="0" style="border:0"
 src="https://www.google.com/maps/embed/v1/directions?key=AIzaSyB_PGXFEP85bdIFxf0BfriNiv-Pv3YBrR8
 &origin=37.96756,-122.039228&destination=36.967570,-122.039210" allowfullscreen></iframe> -->
 
 
-<!--The following is from ChatgPT -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_PGXFEP85bdIFxf0BfriNiv-Pv3YBrR8&callback=initMap" async defer></script>
-<script>
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('googleMap'), {
-          zoom: 10,
-          center: {lat:36.967570, lng: -122.4194},
-          mapTypeControl: false,
-        });
-        var directionsService = new google.maps.DirectionsService();
-        var directionsRenderer = new google.maps.DirectionsRenderer();
-        directionsRenderer.setMap(map);
+    <!--The following is from ChatgPT -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_PGXFEP85bdIFxf0BfriNiv-Pv3YBrR8&callback=initMap"
+        async defer></script>
+    <script>
+        function initMap() {
+            var map = new google.maps.Map(document.getElementById('googleMap'), {
+                zoom: 10,
+                center: { lat: 36.967570, lng: -122.4194 },
+                mapTypeControl: false,
+            });
+            var directionsService = new google.maps.DirectionsService();
+            var directionsRenderer = new google.maps.DirectionsRenderer();
+            directionsRenderer.setMap(map);
 
-        let location = {lat: 36.967570, lng: -122.039210};
-        let marker = new google.maps.Marker({
-            position: location,
-            map: map 
-        });
+            let location = { lat: 36.967570, lng: -122.039210 };
+            let marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
 
-      
-        var startInput = document.getElementById('start');
-        var autocomplete = new google.maps.places.Autocomplete(startInput);
-      
-        var end = "36.967570,-122.039210"; // Replace with the destination address
-        var request = {
-          origin: startInput.value,
-          destination: end,
-          travelMode: 'DRIVING'
-        };
-        directionsService.route(request, function(result, status) {
-          if (status == 'OK') {
-            directionsRenderer.setDirections(result);
-          }
-        });
-      }
-      
-</script>
+
+            var startInput = document.getElementById('start');
+            var autocomplete = new google.maps.places.Autocomplete(startInput);
+
+            var end = "36.967570,-122.039210"; // Replace with the destination address
+            var request = {
+                origin: startInput.value,
+                destination: end,
+                travelMode: 'DRIVING'
+            };
+            directionsService.route(request, function (result, status) {
+                if (status == 'OK') {
+                    directionsRenderer.setDirections(result);
+                }
+            });
+        }
+
+    </script>
 </body>
+
 </html>
