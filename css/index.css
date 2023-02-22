@@ -168,7 +168,22 @@ a.link-to-book:hover {
 }
 
 .menu-body{
-	background-color: brown;
+	background-image: url("/img/abstract-blur-coffee-shop.jpg");
+	background-size:cover;
+}
+
+.menu-header > h1{
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+	font-size: 50px;
+}
+
+.menu-header > p {
+	font-family: 'Big Shoulders Text', cursive;
+
+}
+
+.card-header{
+	font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 @media (min-width:577px) and (max-width: 800px) {
