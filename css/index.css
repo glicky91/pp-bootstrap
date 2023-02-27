@@ -181,6 +181,12 @@ a.link-to-book:hover {
 
 .menu-header > p {
 	font-family: 'Big Shoulders Text', cursive;
+	color: black;
+	background-color: #ffffff;
+	opacity:0.65;
+	width:30%;
+	margin-left: 500px;
+	border-radius:40px;
 	
 
 }
