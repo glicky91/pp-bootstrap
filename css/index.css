@@ -198,7 +198,7 @@ a.link-to-book:hover {
 .menu-footer{
 	background-color: white;
 	opacity:0.65;
-	color:black
+	color: black;
 }
 
 .menu-img{
@@ -208,6 +208,23 @@ a.link-to-book:hover {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+
+#page-container {
+	position: relative;
+	min-height: 100vh;
+}
+
+/* #content-wrap {
+	padding-bottom: 12.8rem;
+} */
+
+#footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* height: 12.8rem; */
+}
+
 @media (min-width:577px) and (max-width: 800px) {
 
 	.section-intro {
