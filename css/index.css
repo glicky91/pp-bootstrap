@@ -203,8 +203,7 @@ a.link-to-book:hover {
 .menu-footer {
 	background-color: white;
 	opacity: 0.65;
-	color: black opacity: 0.65;
-	color: black;
+	color: black
 }
 
 .menu-img {
@@ -215,20 +214,27 @@ a.link-to-book:hover {
 	padding-bottom: 20px;
 }
 
+#aboutUsTeam {
+	background-color: white;
+	opacity: .65;
+	padding-top: 15px;
+	border-radius: 5px;
+}
+
 #page-container {
 	position: relative;
 	min-height: 100vh;
 }
 
-/* #content-wrap {
+#content-wrap {
 	padding-bottom: 12.8rem;
-} */
+}
 
 #footer {
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	/* height: 12.8rem; */
+	height: 12.8rem;
 }
 
 @media (min-width:577px) and (max-width: 800px) {
