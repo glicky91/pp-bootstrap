@@ -184,8 +184,8 @@ a.link-to-book:hover {
 	color: black;
 	background-color: #ffffff;
 	opacity:0.65;
-	width:30%;
-	margin-left: 500px;
+	/* width:30%; */
+	/* margin-left: 500px; */
 	border-radius:40px;
 	
 
